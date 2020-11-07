@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+
 import './App.css';
 
-function App() {
+import Profile from './Profile';
+import Actions from './Actions';
+
+const smsNumber = '13033';
+
+const App =()=> {
+  const [name,setName] = useState(localStorage.getItem('name') ?? '');
+  const [address,setAddress] = useState(localStorage.getItem('address') ?? '');
+  const noDataSet = name === '' || address === '';
+
+  // Save Profile Data to browser local storage
+  useEffect(() => {
+    localStorage.setItem('name', name);
+    localStorage.setItem('address', address);
+  },[name,address])
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Actions noDataSet={noDataSet} smsNumber={smsNumber} name={name} address={address}/>
+      <Profile noDataSet={noDataSet} name={name} address={address} setName={setName} setAddress={setAddress}/>
+  </div>
   );
 }
 
