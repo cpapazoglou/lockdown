@@ -7,7 +7,7 @@ import App from './App';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <pwa-install installbuttontext="Προσθήκη στην Αρχική Σελίδα"></pwa-install>
+    {/* <pwa-install installbuttontext="Προσθήκη στην Αρχική Σελίδα"></pwa-install> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
