@@ -8,10 +8,10 @@ return (
             <Col>
             <Form>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="text" placeholder="Ονοματεπώνυμο" defaultValue={name} onChange={(event)=>setName(event.target.value)} />
+                    <Form.Control type="text" placeholder="Ονοματεπώνυμο" defaultValue={name} onChange={(event)=>setName(event.target.value)} autoComplete="name" />
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="text" placeholder="Οδός Αριθμός, Περιοχή" defaultValue={address} onChange={(event)=>setAddress(event.target.value)}/>
+                    <Form.Control type="text" placeholder="Οδός Αριθμός, Περιοχή" defaultValue={address} onChange={(event)=>setAddress(event.target.value)} autoComplete="street-address"/>
                 </Form.Group>
             </Form>
             </Col>
