@@ -1,27 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Header from './Header';
 import Profile from './Profile';
-import Profile from './Profile';
+import TimeLeft from './TimeLeft';
 import ActionsSection from './ActionsSection';
 
 import './App.css';
 
 
 const App =()=> {
-  const [name,setName] = useState(localStorage.getItem('name') ?? '');
-  const [address,setAddress] = useState(localStorage.getItem('address') ?? '');
-  const dataSet = name !== '' && address !== '';
-
-  // Save Profile Data to browser local storage
-  useEffect(() => {
-    localStorage.setItem('name', name);
-    localStorage.setItem('address', address);
-  },[name,address])
+  const [ profile ,setProfile] = useState( { name: localStorage.getItem('name') ?? '', address:localStorage.getItem('address') ?? '' } );
+  const dataSet = profile.name !== '' && profile.address !== '';
   
   return (
     <div className="App">
       <Header/>
-      <ActionsSection dataSet={dataSet} smsNumber={smsNumber} name={name} address={address}/>
-      <Profile dataSet={dataSet} name={name} address={address} setName={setName} setAddress={setAddress}/>
+      <Profile dataSet={ dataSet } profile={ profile } setProfile={ setProfile }/>
+      <TimeLeft/>
+      <ActionsSection dataSet={ dataSet } profile={ profile }/>
   </div>
   );
 }

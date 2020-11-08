@@ -1,0 +1,19 @@
+.profile {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: auto;
+}
+
+.profile__data {
+  font-size: 20px;
+}
+
+.profile__data-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__data-set {
+  font-weight: 600;
+}

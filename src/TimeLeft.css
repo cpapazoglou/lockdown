@@ -1,0 +1,8 @@
+.countdown {
+  margin: auto;
+  font-size: 20px;
+}
+
+.countdown__title {
+  font-weight: 600;
+}
