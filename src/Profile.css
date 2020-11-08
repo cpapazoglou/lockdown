@@ -6,6 +6,7 @@
 
 .profile__data {
   font-size: 20px;
+  cursor: pointer;
 }
 
 .profile__data-title {

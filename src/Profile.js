@@ -4,23 +4,23 @@ import { Container, Row , Col, Form, Modal, Button } from 'react-bootstrap';
 import './Profile.css'
 
 const Profile = ({ dataSet, profile, setProfile }) => {
-    const [showModal, setShowModal] = useState(! dataSet);
-    const [ name, setName] = useState('');
-    const [ address, setAddress] = useState('');
+    const [ showModal, setShowModal ] = useState( ! dataSet );
+    const [ name, setName] = useState( '' );
+    const [ address, setAddress] = useState( '' );
 
     const handleClose = () => {
         setName( profile.name );
         setAddress( profile.address );
-        setShowModal(false);
+        setShowModal( false );
     }
-    const handleShow = () => setShowModal(true);
+    const handleShow = () => setShowModal( true );
     const handleSave = () => {
         setProfile({ name: name, address: address });
-        setShowModal(false);
+        setShowModal( false );
     }
 
     // Save Profile Data to browser local storage
-    useEffect(() => {
+    useEffect( () => {
         localStorage.setItem('name', profile.name);
         localStorage.setItem('address', profile.address);
     },[ profile.name, profile.address ])
@@ -37,7 +37,7 @@ const Profile = ({ dataSet, profile, setProfile }) => {
                             <Form.Control type="text" placeholder="Ονοματεπώνυμο" defaultValue={ profile.name } name="name" autoComplete="name" onChange={(event)=>setName(event.target.value)} />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Control type="text" placeholder="Οδός Αριθμός, Περιοχή" defaultValue={ profile.address } name="address" autoComplete="street-address" onChange={(event)=>setAddress(event.target.value)} autoComplete="street-address"/>
+                            <Form.Control type="text" placeholder="Οδός Αριθμός, Περιοχή" defaultValue={ profile.address } name="address" autoComplete="street-address" onChange={(event)=>setAddress(event.target.value)}/>
                         </Form.Group>
                     </Form>        
                 </Modal.Body>
