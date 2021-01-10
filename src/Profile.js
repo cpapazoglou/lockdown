@@ -81,7 +81,7 @@ const Profile = ({ dataSet, profile, setProfile }) => {
                     <Col>{ dataSet && 
                         <div className="profile__data" onClick={ handleShow }>
                             <div className="profile__data-title"><i className="material-icons">edit</i>Στοιχεία</div>
-                            <div className="profile__data-set">{ profile.name } { profile.addresses.filter( address => address.selected )[0].address } </div>
+                            <div className="profile__data-set">{ profile.name } { profile.addresses.filter( address => address.selected )[0]?.address } </div>
                         </div> }
                     </Col>
                 </Row>
