@@ -2,7 +2,7 @@ import { Container, Row , Col, Button } from 'react-bootstrap';
 import { Actions, smsNumber } from './Constants'
 
 const ActionsSection = ({ dataSet, profile }) => {
-  const address = profile.addresses.filter( address => address.selected )[0].address;
+  const address = profile.addresses.filter( address => address.selected )[0]?.address;
   
   return (
       <section className="actions">
