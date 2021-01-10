@@ -3,7 +3,7 @@ import { Container, Row , Col, Form } from 'react-bootstrap';
 const AddressSelector = ( { profile, setProfile } ) => {
     const setSelected = ( index ) => {
         const oldAddresses = [...profile.addresses];
-        oldAddresses.filter( address => address.selected )[0].selected = false;
+        oldAddresses.map( address => address.selected = false );
         oldAddresses[index].selected = true;
         setProfile({ name: profile.name, addresses: oldAddresses });
         localStorage.setItem('profile', JSON.stringify( profile ));
