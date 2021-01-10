@@ -1,21 +1,28 @@
 import { useState } from 'react';
 import Header from './Header';
 import Profile from './Profile';
-import TimeLeft from './TimeLeft';
+// import TimeLeft from './TimeLeft';
 import ActionsSection from './ActionsSection';
+import migrations from './data/Migrations'
 
 import './App.css';
+import AddressSelector from './AddressSelector';
 
-
-const App =()=> {
-  const [ profile ,setProfile] = useState( { name: localStorage.getItem('name') ?? '', address:localStorage.getItem('address') ?? '' } );
-  const dataSet = profile.name !== '' && profile.address !== '';
+const App = () => {
+  migrations();
+  const profileData = JSON.parse(localStorage.getItem('profile'));
+  const name = profileData?.name ?? '';
+  const addresses = profileData?.addresses ?? [];
+  const [ profile,setProfile ] = useState( { name , addresses } );
+  
+  const dataSet = profile.name !== '' && profile?.addresses.filter( address => address.selected )[0]?.address !== '';
   
   return (
     <div className="App">
       <Header/>
       <Profile dataSet={ dataSet } profile={ profile } setProfile={ setProfile }/>
-      <TimeLeft/>
+      {/* <TimeLeft/> */}
+      <AddressSelector profile={ profile } setProfile={ setProfile }/>
       <ActionsSection dataSet={ dataSet } profile={ profile }/>
   </div>
   );
